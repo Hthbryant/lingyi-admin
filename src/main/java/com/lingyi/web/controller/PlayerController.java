@@ -1,10 +1,13 @@
 package com.lingyi.web.controller;
 
-import com.lingyi.common.utils.HttpUtil;
+import com.lingyi.biz.entity.Player;
+import com.lingyi.biz.service.PlayerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @author 咕噜科
@@ -19,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PlayerController {
 
     @Autowired
-    private HttpUtil httpUtil;
+    private PlayerService playerService;
 
     @RequestMapping("/hello")
     public String hello () {
@@ -27,11 +30,8 @@ public class PlayerController {
     }
 
     @RequestMapping("/list")
-    public String list () {
-        String url = "http://localhost:1580/capricorn/player/list";
-        String result = httpUtil.postForString(url, null);
-        log.info("player list :{}",result);
-        return result;
+    public List<Player> list () {
+        return playerService.list(null);
     }
 
 }

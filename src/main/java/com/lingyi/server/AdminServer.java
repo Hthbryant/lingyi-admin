@@ -1,8 +1,10 @@
 package com.lingyi.server;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
@@ -12,8 +14,9 @@ import org.springframework.context.annotation.ComponentScan;
  * Description:
  * version 1.0
  */
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class})
 @ComponentScan(basePackages = "com.lingyi")
+@MapperScan(basePackages = "com.lingyi.biz.mapper")
 public class AdminServer {
 
     public static void main(String[] args) {

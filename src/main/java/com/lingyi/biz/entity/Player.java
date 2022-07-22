@@ -20,10 +20,13 @@ public class Player implements Serializable {
 
     @TableId(value = "id")
     private int id;
+
     @TableField(value = "name")
     private String name;
+
     @TableField(value = "age")
     private int age;
+
     @TableField(value = "phone")
     private String phone;
 

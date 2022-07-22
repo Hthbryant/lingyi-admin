@@ -1,0 +1,9 @@
+server:
+  port: 8100
+  servlet:
+    context-path: /admin
+
+#http请求配置
+http:
+  readTimeout: 8000
+  connectTimeout: 8000
